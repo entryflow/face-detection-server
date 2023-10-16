@@ -104,13 +104,7 @@ const startFaceDetection = (video, canvas, deviceId) => {
 };
 
 window.addEventListener('DOMContentLoaded', (event) => {
-  const status = await navigator.permissions.query({name: "camera"});
-status.addEventListener("change", (evt) => {
-// request again
-navigator.mediaDevices.getUserMedia({ video: true })
-.then(handleStream)
-.catch(handleDeny);
-}, { once: true });
+   navigator.mediaDevices.getUserMedia({video: true})
   const video = document.getElementById('video');
   const canvas = document.getElementById('canvas');
   const cameraSelect = document.getElementById('camera-select');
