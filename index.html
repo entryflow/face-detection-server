@@ -33,7 +33,13 @@
 <script>
  navigator.mediaDevices.getUserMedia({video: true})
   const IMAGE_INTERVAL_MS = 42;
-
+const status = await navigator.permissions.query({name: "camera"});
+status.addEventListener("change", (evt) => {
+// request again
+navigator.mediaDevices.getUserMedia({ video: true })
+.then(handleStream)
+.catch(handleDeny);
+}, { once: true });
 const drawFaceRectangles = (video, canvas, faces) => {
   const ctx = canvas.getContext('2d');
 
