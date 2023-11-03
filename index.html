@@ -51,7 +51,7 @@ const drawFaceRectangles = (video, canvas, faces) => {
 };
 
 const startFaceDetection = (video, canvas, deviceId) => {
-  const socket = new WebSocket('wss://entryflow-api.redirectme.net:443/face-detection');
+  const socket = new WebSocket('wss://entryflow-api.redirectme.net:443/face-detection/1');
   let intervalId;
 
   // Connection opened
